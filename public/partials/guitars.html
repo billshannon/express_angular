@@ -5,9 +5,13 @@
     <title>Guitars Page</title>
 </head>
 <body>
-<h1>Viewing Fender Stratocasters</h1>
+<h1>Viewing Guitars</h1>
 
 
-<img width="auto"; height="300" src="http://guitarvillage.uk.com/admin/pages/upload/Fender/Strat%20USA/1959-64-Strat-sb_detail3.jpg">
+<img width="600"; height="auto" src="http://guitarvillage.uk.com/admin/pages/upload/Fender/Strat%20USA/1959-64-Strat-sb_detail3.jpg">
+
+<div ng-repeat="guitar in guitars track by $index">
+    {{guitar | json}}
+</div>
 </body>
 </html>

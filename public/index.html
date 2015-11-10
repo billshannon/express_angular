@@ -10,7 +10,11 @@
                 .controller('HomeController', function () {
 
                 })
-                .controller('GuitarController', function () {
+                .controller('GuitarController', function ($scope, $http) {
+                    $http.get('api/v1/guitars').then(function(response) {
+                        $scope.guitars = response.data
+
+                    })
 
                 })
                 .config(function ($routeProvider, $locationProvider) {
@@ -21,7 +25,11 @@
                     $routeProvider.when('/guitars', {
                         templateUrl: '/partials/guitars.html',
                         controller: 'GuitarController'
-                    });
+                    })
+                    $routeProvider.when('/page-not-found', {
+                                templateUrl: '/partials/page-not-found.html',
+                            })
+                    .otherwise('/page-not-found')
                     $locationProvider.html5Mode(true)
                 })
     </script>
