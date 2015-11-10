@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="guitars">
 <head>
     <meta charset="UTF-8">
     <title>Express Angular</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+    <script type="text/javascript">
+        angular.module('guitars', ['ngRoute'])
+                .controller('HomeController', function () {
+
+                })
+                .controller('GuitarController', function () {
+
+                })
+                .config(function ($routeProvider, $locationProvider) {
+                    $routeProvider.when('/', {
+                        templateUrl: '/partials/home.html',
+                        controller: 'HomeController'
+                    });
+                    $routeProvider.when('/guitars', {
+                        templateUrl: '/partials/guitars.html',
+                        controller: 'GuitarController'
+                    });
+                    $locationProvider.html5Mode(true)
+                })
+    </script>
+    <base href="/">
 </head>
 
 <body>
-{{3+3}}
+<nav>
+    <a href="/">Home</a>
+    <a href="/guitars">Guitars</a>
+</nav>
+<ng-view></ng-view>
 
 </body>
 </html>
